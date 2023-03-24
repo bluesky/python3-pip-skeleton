@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Standards &#8212; python3-pip-skeleton 0.1.dev54+gcde2e45 documentation</title>
+    <title>Standards &#8212; python3-pip-skeleton 0.1.dev54+gf7b033b documentation</title>
   
   
   
@@ -481,21 +481,99 @@ repository.</p>
 <section id="documentation-standards">
 <span id="id1"></span><h2>Documentation Standards<a class="headerlink" href="#documentation-standards" title="Permalink to this heading">#</a></h2>
 <p>Docstrings are pre-processed using the Sphinx Napoleon extension. As such,
-<a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#google-vs-numpy">google-style</a> is considered as standard for this repository. Please use type
+<a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc-style</a> is considered as standard for this repository. Please use type
 hints in the function signature for types. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Summary line.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">long_var_name</span><span class="o">=</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">only_seldom_used_keyword</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="sa">r</span><span class="sd">&quot;&quot;&quot;Summarize the function in one line.</span>
 
-<span class="sd">    Extended description of function.</span>
+<span class="sd">Several sentences providing an extended description. Refer to</span>
+<span class="sd">variables using back-ticks, e.g. `var`.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        arg1: Description of arg1</span>
-<span class="sd">        arg2: Description of arg2</span>
+<span class="sd">Parameters</span>
+<span class="sd">----------</span>
+<span class="sd">var1 : array_like</span>
+<span class="sd">    Array_like means all those objects -- lists, nested lists, etc. --</span>
+<span class="sd">    that can be converted to an array.  We can also refer to</span>
+<span class="sd">    variables like `var1`.</span>
+<span class="sd">var2 : int</span>
+<span class="sd">    The type above can either refer to an actual Python type</span>
+<span class="sd">    (e.g. ``int``), or describe the type of the variable in more</span>
+<span class="sd">    detail, e.g. ``(N,) ndarray`` or ``array_like``.</span>
+<span class="sd">*args : iterable</span>
+<span class="sd">    Other arguments.</span>
+<span class="sd">long_var_name : {&#39;hi&#39;, &#39;ho&#39;}, optional</span>
+<span class="sd">    Choices in brackets, default first when optional.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        Description of return value</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">True</span>
+<span class="sd">Returns</span>
+<span class="sd">-------</span>
+<span class="sd">type</span>
+<span class="sd">    Explanation of anonymous return value of type ``type``.</span>
+<span class="sd">describe : type</span>
+<span class="sd">    Explanation of return value named `describe`.</span>
+<span class="sd">out : type</span>
+<span class="sd">    Explanation of `out`.</span>
+<span class="sd">type_without_description</span>
+
+<span class="sd">Other Parameters</span>
+<span class="sd">----------------</span>
+<span class="sd">only_seldom_used_keyword : int, optional</span>
+<span class="sd">    Infrequently used parameters can be described under this optional</span>
+<span class="sd">    section to prevent cluttering the Parameters section.</span>
+<span class="sd">**kwargs : dict</span>
+<span class="sd">    Other infrequently used keyword arguments. Note that all keyword</span>
+<span class="sd">    arguments appearing after the first parameter specified under the</span>
+<span class="sd">    Other Parameters section, should also be described under this</span>
+<span class="sd">    section.</span>
+
+<span class="sd">Raises</span>
+<span class="sd">------</span>
+<span class="sd">BadException</span>
+<span class="sd">    Because you shouldn&#39;t have done that.</span>
+
+<span class="sd">See Also</span>
+<span class="sd">--------</span>
+<span class="sd">numpy.array : Relationship (optional).</span>
+<span class="sd">numpy.ndarray : Relationship (optional), which could be fairly long, in</span>
+<span class="sd">                which case the line wraps here.</span>
+<span class="sd">numpy.dot, numpy.linalg.norm, numpy.eye</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Notes about the implementation algorithm (if needed).</span>
+
+<span class="sd">This can have multiple paragraphs.</span>
+
+<span class="sd">You may include some math:</span>
+
+<span class="sd">.. math:: X(e^{j\omega } ) = x(n)e^{ - j\omega n}</span>
+
+<span class="sd">And even use a Greek symbol like :math:`\omega` inline.</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">Cite the relevant literature, e.g. [1]_.  You may also cite these</span>
+<span class="sd">references in the notes section above.</span>
+
+<span class="sd">.. [1] O. McNoleg, &quot;The integration of GIS, remote sensing,</span>
+<span class="sd">   expert systems and adaptive co-kriging for environmental habitat</span>
+<span class="sd">   modelling of the Highland Haggis using object-oriented, fuzzy-logic</span>
+<span class="sd">   and neural-network techniques,&quot; Computers &amp; Geosciences, vol. 22,</span>
+<span class="sd">   pp. 585-588, 1996.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">These are written in doctest format, and should illustrate how to</span>
+<span class="sd">use the function.</span>
+
+<span class="sd">&gt;&gt;&gt; a = [1, 2, 3]</span>
+<span class="sd">&gt;&gt;&gt; print([x + 3 for x in a])</span>
+<span class="sd">[4, 5, 6]</span>
+<span class="sd">&gt;&gt;&gt; print(&quot;a\nb&quot;)</span>
+<span class="sd">a</span>
+<span class="sd">b</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">pass</span>
 </pre></div>
 </div>
 <p>Documentation is contained in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory and extracted from
