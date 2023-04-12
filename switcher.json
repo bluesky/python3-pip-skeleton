@@ -4,6 +4,10 @@
     "url": "https://bluesky.github.io/python3-pip-skeleton/main/"
   },
   {
+    "version": "fix_github_io_link",
+    "url": "https://bluesky.github.io/python3-pip-skeleton/fix_github_io_link/"
+  },
+  {
     "version": "various_fixes_found_in_event_model",
     "url": "https://bluesky.github.io/python3-pip-skeleton/various_fixes_found_in_event_model/"
   }
