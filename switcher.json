@@ -8,10 +8,6 @@
     "url": "https://bluesky.github.io/python3-pip-skeleton/1_convert_pip_skeleton_to_meet_the_bluesky_requirements/"
   },
   {
-    "version": "5_github_io_site_is_wrong",
-    "url": "https://bluesky.github.io/python3-pip-skeleton/5_github_io_site_is_wrong/"
-  },
-  {
     "version": "various_fixes_found_in_event_model",
     "url": "https://bluesky.github.io/python3-pip-skeleton/various_fixes_found_in_event_model/"
   }
